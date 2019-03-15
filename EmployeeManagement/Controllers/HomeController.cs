@@ -10,13 +10,12 @@ namespace EmployeeManagement.Controllers
     public class HomeController : Controller
     {
         private IEmployeeRepository _employeeRepository;
-        public HomeController(IEmployeeRepository employeeRepository)
+        public HomeController()
         {
-            _employeeRepository = employeeRepository;
+            _employeeRepository = new MockEmployeeRepository();
         }
         public string Index()
-        {
-            //return Json(new {id=1 , Name="test"});
+        {           
             return _employeeRepository.GetEmployee(1).Name;
         }
     }
