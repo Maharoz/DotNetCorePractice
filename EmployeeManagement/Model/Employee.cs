@@ -13,8 +13,8 @@ namespace EmployeeManagement.Model
         [MaxLength(50,ErrorMessage = "Name cannot be exceed characters")]
         public string Name { get; set; }
         [Required]
-        [RegularExpression(@"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$",
-            ErrorMessage = "Invalid email format")]
+        //[RegularExpression(@"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$",
+        //    ErrorMessage = "Invalid email format")]
         [Display(Name="Office Email")]
         public string Email { get; set; }
         [Required]
