@@ -11,7 +11,6 @@ namespace EmployeeManagement.Model
 
         public MockEmployeeRepository()
         {
-            
                 _employeeList = new List<Employee>()
                 {
                     new Employee() {Id = 1, Name = "Mary", Department = Dept.IT, Email = "marry@gmail.com"},
