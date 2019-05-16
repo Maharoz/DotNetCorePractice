@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20190516170501_AddPhotoPathColumn.cs" />
+    <Compile Remove="Migrations\20190516170501_AddPhotoPathColumn.Designer.cs" />
+    <Compile Remove="Migrations\20190516171255_AddPhotoPathColumn.cs" />
+    <Compile Remove="Migrations\20190516171255_AddPhotoPathColumn.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
