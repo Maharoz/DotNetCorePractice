@@ -34,25 +34,28 @@ namespace EmployeeManagement
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
-            {              
+            {
                 app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseStatusCodePagesWithReExecute("/Error/{0}");
             }
 
             app.UseStaticFiles();
-            //app.UseMvcWithDefaultRoute();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
-            //app.UseMvc();
 
 
-            app.Run(async (context) =>
-            {
-                //throw new Exception("Some error processing the request");
-                await context.Response.WriteAsync("Hello world" );
+            //app.Run(async (context) =>
+            //{
+            //    //throw new Exception("Some error processing the request");
+            //    await context.Response.WriteAsync("Hello world" );
                
-            });
+            //});
         }
     }
 }
