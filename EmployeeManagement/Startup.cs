@@ -39,7 +39,7 @@ namespace EmployeeManagement
             }
             else
             {
-                app.UseStatusCodePagesWithReExecute("/Error/{0}");
+                app.UseStatusCodePagesWithReExecute("/Error");
             }
 
             app.UseStaticFiles();
