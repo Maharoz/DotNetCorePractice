@@ -8,16 +8,21 @@ using EmployeeManagement.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace EmployeeManagement.Controllers
 {
    
     public class HomeController : Controller
     {
-        private IEmployeeRepository _employeeRepository;
-        private IHostingEnvironment hostingEnvironment;
-        public HomeController(IEmployeeRepository employeeRepository,IHostingEnvironment hostingEnvironment)
+        private readonly IEmployeeRepository _employeeRepository;
+        private readonly IHostingEnvironment hostingEnvironment;
+    
+        public HomeController(IEmployeeRepository employeeRepository,
+            IHostingEnvironment hostingEnvironment
+            )
         {
+            
             //_employeeRepository = new MockEmployeeRepository();
             _employeeRepository = employeeRepository;
             this.hostingEnvironment = hostingEnvironment;
@@ -33,6 +38,7 @@ namespace EmployeeManagement.Controllers
         public ViewResult Details(int? id)
         {
             //throw new Exception("Error in Detail");
+          
             Employee employee = _employeeRepository.GetEmployee(id.Value);
             if (employee == null)
             {
