@@ -27,8 +27,18 @@ namespace EmployeeManagement
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContextPool<AppDbContext>(options => options.UseSqlServer(_config.GetConnectionString("EmployeeDBConnection")));
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddIdentity<IdentityUser, IdentityRole>(option =>
+                {
+                    option.Password.RequiredLength = 10;
+                    option.Password.RequiredUniqueChars = 3;
+                })
                 .AddEntityFrameworkStores<AppDbContext>();
+
+            services.Configure<IdentityOptions>(option =>
+            {
+                option.Password.RequiredLength = 10;
+                option.Password.RequiredUniqueChars = 3;
+            });
 
             services.AddMvc().AddXmlSerializerFormatters();
             services.AddTransient<IEmployeeRepository, SqlEmployeeRepository>();
