@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using EmployeeManagement.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagement.ViewModels
@@ -12,6 +13,8 @@ namespace EmployeeManagement.ViewModels
         [Required]
         [EmailAddress]
         [Remote(action: "IsEmailInUse",controller:"Account")]
+        [ValidEmailDomain(allowedDomain :"maharoz.com" ,
+            ErrorMessage = "Email Domain must be maharoz.com")]
         public string Email { get; set; }
 
         [Required]
